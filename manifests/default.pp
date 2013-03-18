@@ -24,6 +24,16 @@ package { "tomcat6":
   require => Exec["apt-get update"],
 }
 
+# configureer de standaard users en rechten inclusief een manager rol
+file { '/var/lib/tomcat6/conf/tomcat-users.xml':
+  source  => '/vagrant/manifests/config/tomcat-users.xml',
+  owner   => root,
+  group   => tomcat6,
+  mode    => 640,
+  notify  => Service['tomcat6'], # tomcat wordt herstart als de file wordt aangepast
+  require => Package["tomcat6"]
+}
+
 package { "tomcat6-docs":
   ensure  => present,
   require => Package["tomcat6"],
