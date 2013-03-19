@@ -6,8 +6,8 @@ class tomcat6 {
   
   # configureer de standaard users en rechten inclusief een manager rol
   file { '/var/lib/tomcat6/conf/tomcat-users.xml':
-    source  => '/vagrant/manifests/config/tomcat-users.xml',
-    #source  => "puppet:///modules/tomcat6/files/tomcat-users.xml",
+    #source  => '/vagrant/manifests/config/tomcat-users.xml',
+    source  => "puppet:///modules/tomcat6/tomcat-users.xml",
     owner   => root,
     group   => tomcat6,
     mode    => 640,
