@@ -7,7 +7,8 @@ Vagrant::Config.run do |config|
     puppet.module_path = "modules"
     puppet.options = "--verbose"
     puppet.facter = {
-      "vagrant" => "1"
+     "vagrant" => "1",
+     "ricky" => "blabla",
     }
   end
 end
